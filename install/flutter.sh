@@ -1,3 +1,5 @@
+# Download tools without AndroidStudio at
+#   https://developer.android.com/studio#downloads
 ## TMP DIRS
 TMP_DIR=~/install_tmp
 mkdir -p "$TMP_DIR" && cd "$TMP_DIR"
