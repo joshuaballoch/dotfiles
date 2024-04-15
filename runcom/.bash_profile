@@ -76,3 +76,5 @@ unset READLINK CURRENT_SCRIPT SCRIPT_PATH DOTFILE
 # Export
 
 export SHELL_BASH SHELL_ZSH OS DOTFILES_DIR
+
+complete -C /usr/local/bin/terraform terraform

@@ -312,14 +312,8 @@
   nmap \| :execute 'NERDTreeFind'<CR>
 
 " Section: Python
-  " filetype plugin on
-  " autocmd FileType python
-  "       \ setlocal tabstop=4
-  "       \ setlocal softtabstop=4
-  "       \ setlocal shiftwidth=4
-  "       \ setlocal textwidth=80
-  "       \ setlocal smarttab
-  "       \ setlocal expandtab
+  filetype plugin on
+  autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=80 smarttab expandtab
 
 
 " Section: Autocompletion!
@@ -347,6 +341,7 @@
   let g:syntastic_check_on_wq = 0
   let g:syntastic_javascript_checkers = ['eslint']
   let g:sytastic_typescript_checkers = ['tsuquyomi']
+  let g:syntastic_python_checkers=['semshi']
 
 " Section: Neoformat / Prettier (js)
 "   source: https://prettier.io/docs/en/vim.html
