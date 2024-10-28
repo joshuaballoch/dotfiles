@@ -29,27 +29,20 @@
   " JS and React Stuff
   Plugin 'pangloss/vim-javascript'
   Plugin 'mxw/vim-jsx'
-  " Resize Panes to Min Sizes
-  " Plugin 'camspiers/animate.vim'
-  " Plugin 'camspiers/lens.vim'
-  "
+  Plugin 'peitalin/vim-jsx-typescript'
   Plugin 'nathangrigg/vim-beancount'
   Plugin 'gmarik/Vundle.vim'
   Plugin 'rking/ag.vim'
-  " Plugin 'liuchengxu/vim-clap' " finder and dispatcher
   " General purpose code complete, similar to VSCode
   Plugin 'neoclide/coc.nvim', {'branch': 'release'}
   Plugin 'ctrlpvim/ctrlp.vim'
   Plugin 'dart-lang/dart-vim-plugin'
   Plugin 'rizzatti/dash.vim'
   Plugin 'editorconfig/editorconfig-vim'
-  " Plugin 'ervandew/supertab'
   Plugin 'scrooloose/nerdtree'
   Plugin 'scrooloose/nerdcommenter'
   Plugin 'tpope/vim-projectionist' " switch between file and :A alternate
-  " Plugin 'codota/tabnine-vim'
   Plugin 'numirias/semshi' " better python syntax
-  " Plugin 'luochen1990/rainbow'
   Plugin 'bling/vim-airline'
   Plugin 'vim-airline/vim-airline-themes'
   Plugin 'kchmck/vim-coffee-script'
@@ -58,6 +51,7 @@
   Plugin 'tpope/vim-endwise'
   Plugin 'tpope/vim-fugitive'
   Plugin 'mustache/vim-mustache-handlebars'
+  Plugin 'pantharshit00/vim-prisma'
   Plugin 'tpope/vim-rhubarb' " enable :Gbrowse in vim-fugitive to open Github
   Plugin 'jason0x43/vim-js-indent' " vim indenter for js and typescript
   Plugin 'Quramy/vim-js-pretty-template' " syntax high for js templates
@@ -77,11 +71,6 @@
   Plugin 'jgdavey/tslime.vim' " send commands to tmux (for tests)
   Plugin 'benmills/vimux'
   Plugin 'sbdchd/neoformat'
-
-  " Plugin 'junegunn/fzf'
-  " Plugin 'junegunn/fzf.vim'
-
-  " Plugin 'Valloric/YouCompleteMe'
 
   call vundle#end()            " required
   filetype plugin indent on    " required
@@ -340,7 +329,7 @@
   let g:syntastic_check_on_open = 1
   let g:syntastic_check_on_wq = 0
   let g:syntastic_javascript_checkers = ['eslint']
-  let g:sytastic_typescript_checkers = ['tsuquyomi']
+  let g:syntastic_typescript_checkers = ['tsuquyomi']
   let g:syntastic_python_checkers=['semshi']
 
 " Section: Neoformat / Prettier (js)
