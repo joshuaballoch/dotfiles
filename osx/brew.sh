@@ -25,6 +25,7 @@ apps=(
     elixir
     ag
     git
+    mise
     mackup
     nvm
     pidof
