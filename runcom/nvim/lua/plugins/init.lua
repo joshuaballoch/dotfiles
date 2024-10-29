@@ -3,6 +3,8 @@ return {
   "ggandor/leap.nvim",
   "rking/ag.vim",
   "nathangrigg/vim-beancount",
+  "roxma/vim-tmux-clipboard",
+  "tmux-plugins/vim-tmux-focus-events", -- support for vim-tmux-clipboard
   {
     "scrooloose/nerdtree",
     cond = (function() return not vim.g.vscode end)
