@@ -99,3 +99,8 @@ filetype off                  " required
 " Section: Python
   filetype plugin on
   autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=80 smarttab expandtab
+" Section: Lua
+  autocmd FileType lua setlocal tabstop=2 softtabstop=2 shiftwidth=2 textwidth=80 smarttab expandtab
+
+" Section: TMUX & System Clipboard
+  set clipboard=unnamed
