@@ -25,13 +25,13 @@ apps=(
     elixir
     ag
     git
-    fd
+    fd # for telescope (nvim)
     mise
     mackup
-    nvm
     pidof
     pyenv
     pyenv-virtualenv
+    rd # for telescope (nvim)
     ruby-install
     terraform
     tmux
