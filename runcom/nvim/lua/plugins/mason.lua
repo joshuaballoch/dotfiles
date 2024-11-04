@@ -18,7 +18,10 @@ return {
   },
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
+    "hrsh7th/nvim-cmp",
+    "hrsh7th/cmp-nvim-lsp",
     "neovim/nvim-lspconfig",
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim", -- https://github.com/ErichDonGubler/lsp_lines.nvim
   },
   config = function()
     require('mason').setup()
@@ -45,7 +48,7 @@ return {
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
       vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-      vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+      vim.keymap.set('n', '<C-K>', vim.lsp.buf.signature_help, bufopts)
       vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
       vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
       vim.keymap.set('n', '<space>wl', function()
@@ -61,6 +64,7 @@ return {
 
     local servers = {
       solargraph = {},
+      -- ruby_lsp = {},
       eslint_lsp = {},
       eslint_d = {},
       ts_ls = {},
@@ -72,6 +76,35 @@ return {
         },
       },
     }
+
+    local border = {
+      {"🭽", "FloatBorder"},
+      {"▔", "FloatBorder"},
+      {"🭾", "FloatBorder"},
+      {"▕", "FloatBorder"},
+      {"🭿", "FloatBorder"},
+      {"▁", "FloatBorder"},
+      {"🭼", "FloatBorder"},
+      {"▏", "FloatBorder"},
+    }
+        -- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
+        -- https://github.com/neovim/nvim-lspconfig/issues/2768
+
+    vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
+    vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
+
+    -- local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+    -- function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+    --   opts = opts or {}
+    --   opts.border = opts.border or border
+    --   return orig_util_open_floating_preview(contents, syntax, opts, ...)
+    -- end
+    -- LSP settings (for overriding per client)
+    local handlers =  {
+      ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border}),
+      ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = border }),
+    }
+
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
@@ -89,9 +122,16 @@ return {
           on_attach = on_attach,
           settings = servers[server_name],
           filetypes = (servers[server_name] or {}).filetypes,
+          handlers = handlers,
         }
       end
     }
+
+    require("lsp_lines").setup()
+    vim.diagnostic.config({
+      virtual_text = false,
+      virtual_lines = true,
+    })
   end,
   opts = {
     registries = {
