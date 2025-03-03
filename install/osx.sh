@@ -24,10 +24,6 @@ brew tap caskroom/versions
 
 . "$DOTFILES_DIR/osx/colors.sh"
 
-# Install ruby
-
-. "$DOTFILES_DIR/install/ruby.sh"
-
 # OSX settings
 
 . "$DOTFILES_DIR/osx/defaults.sh"

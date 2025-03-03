@@ -19,6 +19,8 @@ mkdir -p ~/.config/mise/
 ln -sfv "$DOTFILES_DIR/runcom/mise/config.toml" ~/.config/mise/config.toml
 mkdir -p ~/.config/nvim/
 ln -sfv $DOTFILES_DIR/runcom/nvim/* ~/.config/nvim/
+mkdir -p ~/.config/direnv/
+ln -sfv "$DOTFILES_DIR/runcom/config/direnv.toml" ~/.config/direnv/direnv.toml
 ln -sfv "$DOTFILES_DIR/runcom/.tmux.conf" ~
 ln -sfv "$DOTFILES_DIR/runcom/.agignore" ~
 ln -sfv "$DOTFILES_DIR/git/.gitconfig" ~

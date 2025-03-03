@@ -14,7 +14,6 @@ brew tap petere/postgresql
 apps=(
     reattach-to-user-namespace
     bash-completion2
-    chruby
     cmake
     coreutils
     dockutil
@@ -32,14 +31,11 @@ apps=(
     pyenv
     pyenv-virtualenv
     rd # for telescope (nvim)
-    ruby-install
-    terraform
     tmux
     tmuxinator
     tree
     vim
     nvim
-    yarn
     postgresql-common
     postgresql-9.4
     postgresql-9.6

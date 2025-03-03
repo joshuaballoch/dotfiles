@@ -18,10 +18,7 @@ prepend "$HOME/bin"
 prepend "/sbin"
 prepend "/usr/sbin"
 prepend "/usr/local/sbin"
-prepend "$HOME/.flutterSDK/bin"
-prepend "$HOME/Library/Android/sdk/platform-tools"
-prepend "$HOME/Library/Android/sdk/tools"
-prepend "$HOME/Library/Android/sdk"
+prepend "/Users/joshuaballoch/Library/pnpm"
 
 # Remove duplicates (preserving prepended items)
 # Source: http://unix.stackexchange.com/a/40755
