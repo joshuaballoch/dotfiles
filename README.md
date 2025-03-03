@@ -54,23 +54,8 @@ You can put your custom settings, such as Git credentials in the `system/.custom
     * Git
     * Node.js + npm
     * Python
-* Graphics
-    * [ffmpeg](https://www.ffmpeg.org)
-    * [gifsicle](http://www.lcdf.org/gifsicle)
-    * [imagemagick](http://www.imagemagick.org)
-    * [svgo](https://github.com/svg/svgo)
-* Dev
-    * [http-server](https://github.com/nodeapps/http-server)
-    * [jq](http://stedolan.github.io/jq/)
-    * [peco](http://peco.github.io/)
-* Misc.
-    * [lunchy](https://github.com/eddiezane/lunchy)
-    * [spot](https://github.com/guille/spot)
-    * [tldr](https://github.com/tldr-pages/tldr)
-    * [vtop](https://github.com/MrRio/vtop)
 * OSX
     * [dockutil](https://github.com/kcrawford/dockutil)
-    * [Mackup](https://github.com/lra/mackup)
     * [Quick Look plugins](https://github.com/sindresorhus/quick-look-plugins)
 
 ## Not or barely installable from CLI

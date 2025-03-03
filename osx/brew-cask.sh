@@ -6,16 +6,16 @@
 #
 apps=(
     1password
+    docker
     dropbox
     firefox
     font-hack-nerd-font
     google-chrome
     iterm2
-    spectacle
+    intellij-idea-ce
+    rectangle
     spotify
     slack
-    vlc
-    virtualbox
     visual-studio-code
     whatsapp
 )
