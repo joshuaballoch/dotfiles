@@ -42,6 +42,7 @@ filetype off                  " required
 "" Map folding to L
   nmap <S-L> za
 
+
 " Section: Search
   " Case insensitive search
   set ignorecase
@@ -99,6 +100,16 @@ filetype off                  " required
 " Section: Python
   filetype plugin on
   autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=80 smarttab expandtab
+
+" Section: Neoformat / Prettier (js)
+"   source: https://prettier.io/docs/en/vim.html
+  let g:neoformat_try_node_exe = 1
+  autocmd BufWritePre *.js Neoformat
+  autocmd BufWritePre *.ts Neoformat
+  autocmd BufWritePre *.jsx Neoformat
+  autocmd BufWritePre *.tsx Neoformat
+
+
 " Section: Lua
   autocmd FileType lua setlocal tabstop=2 softtabstop=2 shiftwidth=2 textwidth=80 smarttab expandtab
 

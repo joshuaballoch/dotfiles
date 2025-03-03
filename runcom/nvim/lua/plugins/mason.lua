@@ -1,4 +1,12 @@
 -- FROM: https://github.com/Alexis12119/nvim-config/blob/main/lua/plugins/lsp/configs/mason.lua
+local function close_floating()
+  for _, win in ipairs(vim.api.nvim_list_wins()) do
+    local config = vim.api.nvim_win_get_config(win)
+    if config.relative ~= "" then
+      vim.api.nvim_win_close(win, false)
+    end
+  end
+end
 
 return {
   "williamboman/mason.nvim",
@@ -21,10 +29,12 @@ return {
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-nvim-lsp",
     "neovim/nvim-lspconfig",
+    "nvimdev/lspsaga.nvim",
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim", -- https://github.com/ErichDonGubler/lsp_lines.nvim
   },
   config = function()
     require('mason').setup()
+    require('lspsaga').setup({})
 
     -- Mappings and on_attach from: https://blog.pabuisson.com/2022/08/neovim-modern-features-treesitter-and-lsp/
     -- Mappings.
@@ -34,6 +44,8 @@ return {
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
     vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+    vim.keymap.set('n','<leader>t', '<cmd>Lspsaga term_toggle<CR>')
+    vim.keymap.set('n','<leader>a', '<cmd>Lspsaga code_action<CR>')
 
     -- Use an on_attach function to only map the following keys
     -- after the language server attaches to the current buffer
@@ -46,7 +58,10 @@ return {
       local bufopts = { noremap=true, silent=true, buffer=bufnr }
       vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-      vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+      -- vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+      vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>')
+      vim.keymap.set('n', '<Esc>', close_floating)
+      vim.keymap.set('n', '<space><space>', close_floating)
       vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
       vim.keymap.set('n', '<C-K>', vim.lsp.buf.signature_help, bufopts)
       vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
@@ -65,8 +80,9 @@ return {
     local servers = {
       solargraph = {},
       -- ruby_lsp = {},
-      eslint_lsp = {},
-      eslint_d = {},
+      eslint = {},
+      terraformls = {},
+      tflint = {},
       ts_ls = {},
       lua_ls = {
         Lua = {
@@ -129,8 +145,11 @@ return {
 
     require("lsp_lines").setup()
     vim.diagnostic.config({
+      underline = true,
       virtual_text = false,
-      virtual_lines = true,
+      virtual_lines = {
+        only_current_line = true
+      },
     })
   end,
   opts = {

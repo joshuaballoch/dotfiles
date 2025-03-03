@@ -1,9 +1,16 @@
 return {
   "folke/lazydev.nvim",
-  "ggandor/leap.nvim",
+  {
+    "ggandor/leap.nvim",
+    config = function()
+      require('leap').create_default_mappings()
+    end
+  },
+  "prisma/vim-prisma",
   "rking/ag.vim",
   "nathangrigg/vim-beancount",
   "roxma/vim-tmux-clipboard",
+  "sbdchd/neoformat",
   "tmux-plugins/vim-tmux-focus-events", -- support for vim-tmux-clipboard
   {
     "scrooloose/nerdtree",
@@ -31,6 +38,7 @@ return {
   "tpope/vim-rails",
   "tpope/vim-surround",
   "vim-ruby/vim-ruby",
+  "hashivim/vim-terraform",
   {
     "nvim-telescope/telescope-fzf-native.nvim",
     build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
